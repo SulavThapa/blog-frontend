@@ -18,6 +18,13 @@ class CardHold extends React.Component {
       })
   }
 
+  handleDelete = _id => {
+    axios.delete(`http://localhost:5000/blognp/${_id}`)
+    .then(res => {
+      window.location.reload(false);
+    })
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -33,7 +40,8 @@ class CardHold extends React.Component {
             <p style={{fontFamily: 'courier new'}}>{blog.third_para}</p>
             <p style={{fontFamily: 'courier new'}}>{blog.fourth_para}</p>
             <Button variant="success">Edit</Button>
-            <Button variant="danger">Delete</Button>
+            <Button onClick={this.handleDelete.bind(this, blog._id)}
+            variant="danger">Delete</Button>
           </Card>
         )}
       </React.Fragment>
