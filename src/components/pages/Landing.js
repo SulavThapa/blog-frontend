@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Card, Button } from 'react-bootstrap';
+import PostBlog from '../form/blog';
 
 class CardHold extends React.Component {
 
@@ -20,15 +21,17 @@ class CardHold extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <h1 style={{fontFamily: 'courier new', fontWeight: 'bold', textAlign: 'center'}}>BLOG LIST</h1>
+        <PostBlog />
         {this.state.blog.map(blog =>
-          <Card style={{margin: 50}}>
-            <h1>{blog.title}</h1>
-            <p>{blog.name}</p>
-            <p>{blog.date}</p>
-            <p>{blog.first_para}</p>
-            <p>{blog.second_para}</p>
-            <p>{blog.third_para}</p>
-            <p>{blog.fourth_para}</p>
+          <Card className="shadow" style={{margin: 50, padding: 13}}>
+            <h1 style={{fontFamily: 'courier new', fontWeight: 'bold'}}>{blog.title}</h1>
+            <p style={{fontWeight: 'bold', fontFamily: 'courier new'}}>{blog.name}</p>
+            <p style={{fontFamily: 'courier new', fontWeight: 'bold'}}>{blog.date}</p>
+            <p style={{fontFamily: 'courier new'}}> {blog.first_para}</p>
+            <p style={{fontFamily: 'courier new'}}>{blog.second_para}</p>
+            <p style={{fontFamily: 'courier new'}}>{blog.third_para}</p>
+            <p style={{fontFamily: 'courier new'}}>{blog.fourth_para}</p>
             <Button variant="success">Edit</Button>
             <Button variant="danger">Delete</Button>
           </Card>
